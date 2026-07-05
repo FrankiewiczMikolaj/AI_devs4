@@ -6,8 +6,10 @@ import {
   DATA_DIR,
   MAX_BIRTH_YEAR,
   MIN_BIRTH_YEAR,
+  OUTPUT_DIR,
   REQUIRED_TAG,
   requireEnv,
+  SUBMITTED_SUSPECTS_PATH,
   TARGET_CITY,
   TARGET_GENDER,
 } from "./config.js";
@@ -94,4 +96,10 @@ export function toTaggedPeople(
 
 export function filterByRequiredTag(people: TaggedPerson[]): TaggedPerson[] {
   return people.filter((person) => person.tags.includes(REQUIRED_TAG));
+}
+
+export async function saveSubmittedSuspects(suspects: TaggedPerson[]): Promise<void> {
+  await mkdir(OUTPUT_DIR, { recursive: true });
+  await Bun.write(SUBMITTED_SUSPECTS_PATH, JSON.stringify(suspects, null, 2));
+  log.cache(`Submitted suspects saved to ${SUBMITTED_SUSPECTS_PATH}`);
 }

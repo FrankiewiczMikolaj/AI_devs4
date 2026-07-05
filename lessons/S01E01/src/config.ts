@@ -17,8 +17,10 @@ export const AI_MODEL = "gpt-4.1-mini";
 
 export const DATA_DIR = path.join(import.meta.dir, "..", "data");
 export const CACHE_DIR = path.join(import.meta.dir, "..", "cache");
+export const OUTPUT_DIR = path.join(import.meta.dir, "..", "output");
 export const CSV_PATH = path.join(DATA_DIR, "people.csv");
 export const TAGGING_CACHE_PATH = path.join(CACHE_DIR, "tagged.json");
+export const SUBMITTED_SUSPECTS_PATH = path.join(OUTPUT_DIR, "suspects.json");
 
 export const CLI_FORCE = process.argv.includes("--force");
 

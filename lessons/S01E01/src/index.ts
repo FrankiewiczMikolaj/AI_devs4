@@ -6,6 +6,7 @@ import {
   filterByRequiredTag,
   filterSuspects,
   loadPeople,
+  saveSubmittedSuspects,
   toTaggedPeople,
 } from "./people.js";
 import { tagSuspects } from "./tagging.js";
@@ -31,7 +32,12 @@ async function solve(): Promise<TaggedPerson[]> {
   });
 
   const message = formatHubSuccess(hubResponse);
-  log.hub(message.includes("{FLG:") ? `🚩 ${message}` : `Response: ${message}`);
+  const hasFlag = message.includes("{FLG:");
+  log.hub(hasFlag ? `🚩 ${message}` : `Response: ${message}`);
+
+  if (hasFlag) {
+    await saveSubmittedSuspects(finalAnswer);
+  }
 
   return finalAnswer;
 }
