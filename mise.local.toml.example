@@ -1,0 +1,3 @@
+# Copy to mise.local.toml and set your 1Password Environment ID.
+[env]
+OP_ENVIRONMENT = "ENVIRONMENT_ID"

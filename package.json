@@ -1,0 +1,15 @@
+{
+  "name": "AI_devs4",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "lessons:s01e01:install": "bash -lc 'cd lessons/S01E01 && mise install && mise exec -- bun install'",
+    "s01e01:install": "npm run lessons:s01e01:install",
+    "lessons:s01e01": "bash -lc 'cd lessons/S01E01 && mise exec -- bun src/index.ts'",
+    "lessons:s01e01:dev": "bash -lc 'cd lessons/S01E01 && mise exec -- bun --watch src/index.ts'",
+    "lessons:s01e01:op": "bash scripts/op-run.sh bash -lc 'cd lessons/S01E01 && mise exec -- bun src/index.ts'"
+  }
+}
