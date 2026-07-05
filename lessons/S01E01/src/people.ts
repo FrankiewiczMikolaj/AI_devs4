@@ -4,6 +4,7 @@ import { parse } from "csv-parse/sync";
 import {
   CSV_PATH,
   DATA_DIR,
+  formatLessonPath,
   MAX_BIRTH_YEAR,
   MIN_BIRTH_YEAR,
   OUTPUT_DIR,
@@ -33,12 +34,12 @@ export async function downloadPeopleCsv(): Promise<string> {
   const hubApiKey = requireEnv("HUB_API_KEY");
 
   if (await fileExists(CSV_PATH)) {
-    log.cache(`CSV already exists, skipping download`);
+    log.data(`Using existing file: ${formatLessonPath(CSV_PATH)}`);
     return CSV_PATH;
   }
 
   const url = `https://hub.ag3nts.org/data/${encodeURIComponent(hubApiKey)}/people.csv`;
-  log.info("Downloading CSV from hub...");
+  log.info("Downloading people.csv from hub");
 
   const response = await fetch(url);
   if (!response.ok) {
@@ -48,7 +49,7 @@ export async function downloadPeopleCsv(): Promise<string> {
   await mkdir(DATA_DIR, { recursive: true });
   await Bun.write(CSV_PATH, response);
 
-  log.cache(`CSV saved to ${CSV_PATH}`);
+  log.data(`Saved: ${formatLessonPath(CSV_PATH)}`);
   return CSV_PATH;
 }
 
@@ -101,5 +102,5 @@ export function filterByRequiredTag(people: TaggedPerson[]): TaggedPerson[] {
 export async function saveSubmittedSuspects(suspects: TaggedPerson[]): Promise<void> {
   await mkdir(OUTPUT_DIR, { recursive: true });
   await Bun.write(SUBMITTED_SUSPECTS_PATH, JSON.stringify(suspects, null, 2));
-  log.cache(`Submitted suspects saved to ${SUBMITTED_SUSPECTS_PATH}`);
+  log.output(`Saved ${suspects.length} suspects to ${formatLessonPath(SUBMITTED_SUSPECTS_PATH)}`);
 }

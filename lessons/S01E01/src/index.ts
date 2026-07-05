@@ -17,15 +17,15 @@ async function solve(): Promise<TaggedPerson[]> {
   const people = await loadPeople(csvPath);
   const suspects = filterSuspects(people);
 
-  log.info(`Found ${suspects.length} suspects`);
+  log.info(`Found ${suspects.length} suspects after filtering`);
 
   const taggingResult = await tagSuspects(suspects);
   const taggedPeople = toTaggedPeople(suspects, taggingResult);
   const finalAnswer = filterByRequiredTag(taggedPeople);
 
-  log.info(`${finalAnswer.length} of ${taggedPeople.length} suspects match tag "${REQUIRED_TAG}"`);
+  log.info(`${finalAnswer.length} of ${taggedPeople.length} suspects match required tag "${REQUIRED_TAG}"`);
 
-  log.hub(`Submitting answer (task: ${TASK_NAME}, count: ${finalAnswer.length})...`);
+  log.hub(`Submitting answer (${finalAnswer.length} suspects)`);
   const hubResponse = await submitAnswer({
     task: TASK_NAME,
     answer: finalAnswer,
