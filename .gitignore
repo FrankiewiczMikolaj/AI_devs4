@@ -10,6 +10,7 @@ dist/
 **/.env
 mise.local.toml
 lessons/**/data/
+lessons/**/cache/
 **/.~lock.*
 *.csv
 .cursorignore

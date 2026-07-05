@@ -1,6 +1,6 @@
 import { mkdir } from "node:fs/promises";
 import { chatStructured, extractJson, getAiProviderLabel } from "./api.js";
-import { CLI_FORCE, DATA_DIR, TAGGING_CACHE_PATH } from "./config.js";
+import { CLI_FORCE, CACHE_DIR, TAGGING_CACHE_PATH } from "./config.js";
 import { log } from "./logger.js";
 import { buildJobTaggingPrompt } from "./prompts/job-tagging.js";
 import { jobTaggingSchema } from "./schemas/job-tagging.js";
@@ -32,7 +32,7 @@ async function readTaggingCache(suspectCount: number): Promise<JobTaggingResult 
 }
 
 async function writeTaggingCache(result: JobTaggingResult): Promise<void> {
-  await mkdir(DATA_DIR, { recursive: true });
+  await mkdir(CACHE_DIR, { recursive: true });
   await Bun.write(TAGGING_CACHE_PATH, JSON.stringify(result, null, 2));
 }
 

@@ -16,8 +16,9 @@ export const REQUIRED_TAG: JobTag = "transport";
 export const AI_MODEL = "gpt-4.1-mini";
 
 export const DATA_DIR = path.join(import.meta.dir, "..", "data");
+export const CACHE_DIR = path.join(import.meta.dir, "..", "cache");
 export const CSV_PATH = path.join(DATA_DIR, "people.csv");
-export const TAGGING_CACHE_PATH = path.join(DATA_DIR, "tagged.json");
+export const TAGGING_CACHE_PATH = path.join(CACHE_DIR, "tagged.json");
 
 export const CLI_FORCE = process.argv.includes("--force");
 
