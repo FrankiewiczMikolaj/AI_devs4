@@ -71,3 +71,6 @@ export const resolveModelForProvider = (model) => {
 
   return `openai/${model}`;
 };
+
+/** @type {string} */
+export const GEOAPIFY_API_KEY = process.env.GEOAPIFY_API_KEY?.trim() ?? "";

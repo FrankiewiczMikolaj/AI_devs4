@@ -10,6 +10,10 @@
     "s01e01:install": "npm run lessons:s01e01:install",
     "lessons:s01e01": "bash -lc 'cd lessons/S01E01 && mise exec -- bun src/main.ts'",
     "lessons:s01e01:dev": "bash -lc 'cd lessons/S01E01 && mise exec -- bun --watch src/main.ts'",
-    "lessons:s01e01:op": "bash scripts/op-run.sh bash -lc 'cd lessons/S01E01 && mise exec -- bun src/main.ts'"
+    "lessons:s01e01:op": "bash scripts/op-run.sh bash -lc 'cd lessons/S01E01 && mise exec -- bun src/main.ts'",
+    "lessons:s01e02:install": "bash -lc 'cd lessons/S01E02 && mise install && mise exec -- bun install'",
+    "lessons:s01e02": "bash -lc 'cd lessons/S01E02 && mise exec -- bun src/main.ts'",
+    "lessons:s01e02:dev": "bash -lc 'cd lessons/S01E02 && mise exec -- bun --watch src/main.ts'",
+    "lessons:s01e02:op": "bash scripts/op-run.sh bash -lc 'cd lessons/S01E02 && mise exec -- bun src/main.ts'"
   }
 }
