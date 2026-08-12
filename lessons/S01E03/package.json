@@ -1,0 +1,19 @@
+{
+    "name": "s01e03",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "start": "bun src/main.ts",
+        "dev": "bun --watch src/main.ts",
+        "verify": "bun src/verify.ts",
+        "typecheck": "bunx tsc --noEmit"
+    },
+    "devDependencies": {
+        "@types/bun": "^1.3.5",
+        "typescript": "^5.8.3"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.30.0",
+        "zod": "^4.4.3"
+    }
+}
