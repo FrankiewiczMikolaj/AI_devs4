@@ -12,6 +12,7 @@ mise.local.toml
 lessons/**/data/
 lessons/**/cache/
 lessons/**/output/
+lessons/**/workspace/
 **/.~lock.*
 *.csv
 .cursorignore
