@@ -1,0 +1,58 @@
+{
+  "name": "files-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for sandboxed file access",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "files-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "bun --hot src/index.ts",
+    "start": "bun run src/index.ts",
+    "build": "bun build src/index.ts --outdir dist --target node",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "test:watch": "bun test --watch",
+    "test:protocol": "bun test tests/protocol.test.ts",
+    "test:protocol:built": "MCP_TEST_ENTRY=dist/index.js bun test tests/protocol.test.ts",
+    "inspector": "npx @modelcontextprotocol/inspector bun run src/index.ts"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "filesystem",
+    "files",
+    "server",
+    "claude",
+    "ai"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.0.0-beta.5",
+    "diff": "^8.0.3",
+    "escape-string-regexp": "^5.0.0",
+    "fast-glob": "^3.3.3",
+    "fuzzysort": "^3.1.0",
+    "ignore": "^7.0.5",
+    "picomatch": "^4.0.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.14",
+    "@modelcontextprotocol/client": "2.0.0-beta.5",
+    "@types/diff": "^7.0.2",
+    "@types/escape-string-regexp": "^1.0.0",
+    "@types/node": "^24.10.0",
+    "@types/picomatch": "^4.0.2",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
