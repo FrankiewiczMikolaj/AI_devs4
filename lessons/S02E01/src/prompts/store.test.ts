@@ -75,7 +75,6 @@ describe("prompt store", () => {
       ok: false,
       itemsTested: 2,
       rejectedItemId: "i2",
-      ppUsed: null,
       message: "NOT ACCEPTED",
     });
 
@@ -90,7 +89,6 @@ describe("prompt store", () => {
       ok: true,
       itemsTested: 10,
       rejectedItemId: null,
-      ppUsed: null,
       message: "",
     });
 

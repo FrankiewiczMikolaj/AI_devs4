@@ -12,7 +12,6 @@ export type HubRunRecord = {
   ok: boolean;
   itemsTested: number;
   rejectedItemId: string | null;
-  ppUsed: number | null;
   message: string;
 };
 

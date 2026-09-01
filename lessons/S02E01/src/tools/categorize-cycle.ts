@@ -92,7 +92,6 @@ export const categorizeCycleTool = defineTool({
         ok: outcome.ok,
         itemsTested: summary.itemsTested,
         rejectedItemId: summary.rejectedItem?.id ?? null,
-        ppUsed: outcome.budget?.ppUsed ?? null,
         message: outcome.message,
       });
     }
