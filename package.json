@@ -46,6 +46,15 @@
     "lessons:s01e05:typecheck": "bash -lc 'cd lessons/S01E05 && mise exec -- bunx tsc --noEmit'",
     "lessons:s01e05:op": "bash scripts/op-run.sh bash -lc 'cd lessons/S01E05 && mise exec -- bun src/main.ts'",
     "lessons:s01e05:op:dev": "bash scripts/op-run.sh bash -lc 'cd lessons/S01E05 && mise exec -- bun --watch src/main.ts'",
-    "s01e05:install": "npm run lessons:s01e05:install"
+    "s01e05:install": "npm run lessons:s01e05:install",
+
+    "lessons:s02e01:install": "bash -lc 'cd lessons/S02E01 && mise install && mise exec -- bun install'",
+    "lessons:s02e01": "bash -lc 'cd lessons/S02E01 && mise exec -- bun src/main.ts'",
+    "lessons:s02e01:dev": "bash -lc 'cd lessons/S02E01 && mise exec -- bun --watch src/main.ts'",
+    "lessons:s02e01:test": "bash -lc 'cd lessons/S02E01 && mise exec -- bun test'",
+    "lessons:s02e01:typecheck": "bash -lc 'cd lessons/S02E01 && mise exec -- bunx tsc --noEmit'",
+    "lessons:s02e01:op": "bash scripts/op-run.sh bash -lc 'cd lessons/S02E01 && mise exec -- bun src/main.ts'",
+    "lessons:s02e01:op:dev": "bash scripts/op-run.sh bash -lc 'cd lessons/S02E01 && mise exec -- bun --watch src/main.ts'",
+    "s02e01:install": "npm run lessons:s02e01:install"
   }
 }
